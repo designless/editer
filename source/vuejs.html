@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <meta charset="utf-8" />
+	<title></title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/0.12.1/vue.min.js"></script>
+  <style>
+  
+  </style>
+</head>
+
+<body>
+<h1>Vue.js DEMO</h1>
+<div id="editor">
+  <input type="text" v-model="input">
+  <div>{{input}}</div>
+</div>
+<script>
+new Vue({
+  el: '#editor',
+  data: {
+    input: '文字を入力'
+  }
+})
+</script>
+</body>
+</html>
