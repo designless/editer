@@ -72,6 +72,14 @@ $(function () {
 
 	windowResizer();
 
+  function setTemplate(template) {
+    $.get("source/"+template+'.html', function (data) {
+      editor.setValue(data);
+      editor.clearSelection();
+      editor.scrollToLine(0);
+    });
+  }
+
 	$(".reset").click(function () {
 		loadDefault();
 	});
@@ -97,6 +105,9 @@ $(function () {
 	$('#theme').change(function(){
 		editor.setTheme($(this).val());
 	})
+  $('#template').change(function(){
+    setTemplate($(this).val())
+  })
 	$('#save').click(function(){
 		var dateObj = new Date();
 		var month = toDoubleDigits(dateObj.getMonth() + 1);
