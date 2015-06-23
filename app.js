@@ -99,11 +99,19 @@ $(function () {
     }
 	});
 	themelist.themes.forEach(function(theme){
-		var $option = $('<option>').val(theme.theme).text(theme.name)
+		var $option = $('<option>').val(theme.theme).text(theme.name).data('dark', theme.isDark)
 		$('#theme').append($option)
 	});
 	$('#theme').change(function(){
 		editor.setTheme($(this).val());
+    var selected = $(this).find('option:selected');
+    var isDark = selected.data('dark');
+    if (isDark){
+      $('header').addClass('dark')
+    }
+    else{
+      $('header').removeClass('dark')
+    }
 	})
   $('#template').change(function(){
     setTemplate($(this).val())
