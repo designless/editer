@@ -513,8 +513,12 @@ nav ul li:hover {
   -o-transition-property: all;
 }
 
-@font-face {
-  font-family: 'WebIconFonts';
-  src: url('../css/webiconfonts.eot');
-  src: url('../css/WebIconFonts.eot?') format('eot'), url('../css/WebIconFonts.woff') format('woff'), url('../css/WebIconFonts.ttf') format('truetype');
+.github{
+  margin-right: 8px;
+}
+.github iframe{
+  vertical-align: middle;
+}
+.ace_print-margin{
+  display: none;
 }

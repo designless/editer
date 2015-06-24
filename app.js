@@ -16,13 +16,15 @@ $(function () {
 
 	var delayPreview;
 
+	var currentTemplate = 'blank';
+
 	editor.on("change", function () {
 		clearTimeout(delayPreview);
 		delayPreview = setTimeout(updatePreview, 200);
 	});
 
 	function loadDefault() {
-		$.get("source/blank.html", function (data) {
+		$.get("source/"+currentTemplate+".html", function (data) {
 			editor.setValue(data);
 			editor.clearSelection();
 			editor.scrollToLine(0);
@@ -77,6 +79,7 @@ $(function () {
       editor.setValue(data);
       editor.clearSelection();
       editor.scrollToLine(0);
+      currentTemplate = template
     });
   }
 
