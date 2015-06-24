@@ -95,10 +95,10 @@ $(function () {
 		$("#editor").toggleClass('hide');
 		$("#preview").toggleClass('full');
     if ($('#preview').hasClass('full')){
-      $(this).html('<i class="fa fa-arrow-circle-right"></i>')
+      $(this).html('<i class="fa fa-arrow-circle-right" title="Close"></i>')
     }
     else{
-      $(this).html('<i class="fa fa-arrow-circle-left"></i>')
+      $(this).html('<i class="fa fa-arrow-circle-left" title="Open"></i>')
     }
 	});
 	themelist.themes.forEach(function(theme){
