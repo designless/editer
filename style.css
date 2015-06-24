@@ -519,3 +519,6 @@ nav ul li:hover {
 .github iframe{
   vertical-align: middle;
 }
+.ace_print-margin{
+  display: none;
+}
