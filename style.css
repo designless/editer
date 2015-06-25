@@ -420,7 +420,7 @@ header.dark{
 }
 
 nav {
-  font-family: WebIconFonts;
+  
 }
 
 nav li:hover {
@@ -526,4 +526,11 @@ nav ul li:last-child {
 }
 .ace_print-margin{
   display: none;
+}
+
+#logo{
+  position: absolute;
+  z-index: 9999;
+  bottom: 8px;
+  left: 32px;
 }
