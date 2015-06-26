@@ -140,18 +140,18 @@ var toDoubleDigits = function(num) {
   if (num.length === 1) {
     num = "0" + num;
   }
- return num;     
+ return num;
 };
 
-/* 
- * Lazy Line Painter - Path Object 
+/*
+ * Lazy Line Painter - Path Object
  * Generated using 'SVG to Lazy Line Converter'
- * 
- * http://lazylinepainter.info 
- * Copyright 2013, Cam O'Connell  
- *  
- */ 
- 
+ *
+ * http://lazylinepainter.info
+ * Copyright 2013, Cam O'Connell
+ *
+ */
+
 var pathObj = {
   "logo": {
     "strokepath": [
@@ -185,14 +185,13 @@ var pathObj = {
         "height": 120
     }
   }
-}; 
- 
-$(document).ready(function(){ 
- $('#logo').lazylinepainter( 
+};
+
+$(document).ready(function(){
+ $('#logo').lazylinepainter(
    {
       "svgData": pathObj,
-      "strokeWidth": 2,
-      "strokeColor": "#00a29a"
-  }).lazylinepainter('paint'); 
+      "strokeWidth": 1,
+      "strokeColor": "#fff"
+  }).lazylinepainter('paint');
 });
- 

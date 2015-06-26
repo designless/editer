@@ -402,7 +402,11 @@ header h1 {
   float: left;
   margin: 0;
   margin-left: 20px;
-  font-size: 100%;
+}
+
+header h1 img {
+  width: 70px;
+  padding-top: 5px;
 }
 
 header h1 span {
@@ -420,7 +424,7 @@ header.dark{
 }
 
 nav {
-  
+
 }
 
 nav li:hover {
@@ -531,6 +535,7 @@ nav ul li:last-child {
 #logo{
   position: absolute;
   z-index: 9999;
-  bottom: 8px;
-  left: 32px;
+  bottom: 10px;
+  left: 20px;
+  opacity: .2;
 }
