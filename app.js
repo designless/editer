@@ -2,7 +2,7 @@ $(function () {
 	var themelist = require("ace/ext/themelist");
 	console.log(themelist)
 	var editor = ace.edit("editor");
-	editor.setTheme("ace/theme/monokai");
+	editor.setTheme("ace/theme/solarized_dark");
 	editor.getSession().setMode("ace/mode/html");
 	editor.session.setUseWrapMode(true);
 	editor.session.setWrapLimitRange(null, null);
