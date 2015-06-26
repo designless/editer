@@ -539,3 +539,14 @@ nav ul li:last-child {
   left: 20px;
   opacity: .2;
 }
+
+#error {
+  background: #444;
+  color: #fff;
+  text-align: center;
+  padding-top: 100px;
+}
+
+#error a {
+  color: #00a29a;
+}
