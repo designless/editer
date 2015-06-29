@@ -111,6 +111,7 @@ $(function () {
     var isDark = selected.data('dark');
     if (isDark){
       $('header').addClass('dark')
+      $('h1 img').attr('src','images/logo.png')
     }
     else{
       $('header').removeClass('dark')
