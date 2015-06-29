@@ -1,8 +1,17 @@
+/*
+ * EDITER
+ * http://editer.io
+ *
+ * Copyright 2015 Naoki Kanazawa, Kaito Watanabe
+ *
+ * Released under the MIT license - http://opensource.org/licenses/mit-license.php
+ */
+
 $(function () {
 	var themelist = require("ace/ext/themelist");
 	console.log(themelist)
 	var editor = ace.edit("editor");
-	editor.setTheme("ace/theme/solarized_dark");
+	editor.setTheme("ace/theme/solarized_light");
 	editor.getSession().setMode("ace/mode/html");
 	editor.session.setUseWrapMode(true);
 	editor.session.setWrapLimitRange(null, null);
