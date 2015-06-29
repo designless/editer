@@ -521,11 +521,14 @@ nav ul li:last-child {
   -o-transition-property: all;
 }
 
-.github {
+.github,
+.twitter,
+.facebook {
   margin-right: 5px;
 }
 
-.github iframe{
+.github iframe,
+.twitter iframe {
   vertical-align: middle;
 }
 .ace_print-margin{
@@ -554,3 +557,15 @@ nav ul li:last-child {
 .fb_iframe_widget {
   top: -9px;
 }
+
+@media screen and (max-width: 940px) {
+  .theme,
+  .template,
+  .facebook,
+  .twitter,
+  .github {
+    display: none;
+  }
+}
+
+
