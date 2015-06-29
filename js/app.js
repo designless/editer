@@ -114,6 +114,7 @@ $(function () {
     }
     else{
       $('header').removeClass('dark')
+      $('h1 img').attr('src','images/logo_black.png')
     }
 	})
   $('#template').change(function(){
