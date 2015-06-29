@@ -16,7 +16,7 @@ $(function () {
 
 	var delayPreview;
 
-	var currentTemplate = 'blank';
+	var currentTemplate = 'demo';
 
 	editor.on("change", function () {
 		clearTimeout(delayPreview);
