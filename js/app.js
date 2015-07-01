@@ -44,11 +44,7 @@ $(function () {
 
 	editor.on("change", function () {
 		clearTimeout(delayPreview);
-		if (isSassMode) {
-			delayPreview = setTimeout(updateSassPreview, 200);
-		} else{
-			delayPreview = setTimeout(updatePreview, 200);	
-		};
+		delayPreview = setTimeout(updatePreview, 200);	
 		
 	});
 
@@ -96,6 +92,7 @@ $(function () {
 	}
 
 	function updateSassPreview() {
+		alert('aaa')
 		var previewFrame = document.getElementById('preview');
 		var preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
     sass.compile(sassEditor.getValue(), function(result) {
@@ -163,7 +160,10 @@ $(function () {
 		$('#theme').append($option)
 	});
 	$('#theme').change(function(){
-		editor.setTheme($(this).val());
+		var theme = $(this).val()
+		editors.forEach(function (edtr) {
+	  	edtr.setTheme(theme);
+	  });
     var selected = $(this).find('option:selected');
     var isDark = selected.data('dark');
     if (isDark){
