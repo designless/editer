@@ -11,7 +11,7 @@ $(function () {
 	var themelist = require("ace/ext/themelist");
 	console.log(themelist)
 	var editor = ace.edit("editor");
-	editor.setTheme("ace/theme/girly");
+	editor.setTheme("ace/theme/solarized_light");
 	editor.getSession().setMode("ace/mode/html");
 	editor.session.setUseWrapMode(true);
 	editor.session.setWrapLimitRange(null, null);
@@ -119,11 +119,8 @@ $(function () {
     var selected = $(this).find('option:selected');
     var isDark = selected.data('dark');
     if (isDark){
-      $('header').addClass('dark').removeClass('girly');
+      $('header').addClass('dark');
       $('h1 img').attr('src','images/logo.png');
-    }
-    if (isGirl){
-      $('header').addClass('girly');
     }
     else{
       $('header').removeClass('dark');
