@@ -34,7 +34,7 @@ $(function () {
 		edtr.setHighlightActiveLine(false);
 		edtr.setDisplayIndentGuides(true);
 		edtr.setFontSize("14px");
-		editor.$blockScrolling = Infinity
+		edtr.$blockScrolling = Infinity
   });
 
 
@@ -107,7 +107,7 @@ $(function () {
 	      var source = source1 + style + source2;
 	      preview.write(source);
 				preview.close();
-				editor.setValue(source);
+				editor.setValue(source, -1);
     	}
     });
 
@@ -199,7 +199,7 @@ $(function () {
 		$('#html').toggleClass('sass-template');
 		$('#sass').toggleClass('sass-template');
 		var source = editor.getValue().split('<style>')[1].split('</style>')[0]
-		sassEditor.setValue(source)
+		sassEditor.setValue(source, -1)
 	})
 
 });
