@@ -1,4 +1,3 @@
-
 /*! normalize.css v2.0.1 | MIT License | git.io/normalize */
 
 /* ==========================================================================
@@ -402,7 +401,11 @@ header h1 {
   float: left;
   margin: 0;
   margin-left: 20px;
-  font-size: 100%;
+}
+
+header h1 img {
+  width: 66px;
+  padding-top: 5px;
 }
 
 header h1 span {
@@ -420,7 +423,7 @@ header.dark{
 }
 
 nav {
-  
+
 }
 
 nav li:hover {
@@ -517,11 +520,14 @@ nav ul li:last-child {
   -o-transition-property: all;
 }
 
-.github {
+.github,
+.twitter,
+.facebook {
   margin-right: 5px;
 }
 
-.github iframe{
+.github iframe,
+.twitter iframe {
   vertical-align: middle;
 }
 .ace_print-margin{
@@ -531,6 +537,32 @@ nav ul li:last-child {
 #logo{
   position: absolute;
   z-index: 9999;
-  bottom: 8px;
-  left: 32px;
+  bottom: 10px;
+  left: 20px;
+  opacity: .2;
+}
+
+#error {
+  background: #444;
+  color: #fff;
+  text-align: center;
+  padding-top: 100px;
+}
+
+#error a {
+  color: #00a29a;
+}
+
+.fb_iframe_widget {
+  top: -9px;
+}
+
+@media screen and (max-width: 940px) {
+  .theme,
+  .template,
+  .facebook,
+  .twitter,
+  .github {
+    display: none;
+  }
 }

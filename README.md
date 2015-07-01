@@ -1,12 +1,15 @@
-Editer
-======
-
-[Editer](http://editer.io/)
+# Editer
+[http://editer.io](http://editer.io)
 
 Instruction Tool : HTML/CSS/jQuery
 
-License
-MIT License
+## Built with ACE Code Editor
+[http://ace.ajax.org](http://ace.ajax.org)
 
-Collaborator
+## License
+Copyright (c) 2015 Naoki Kanazawa
+Released under the MIT license
+[http://opensource.org/licenses/mit-license.php](http://opensource.org/licenses/mit-license.php)
+
+## Collaborator
 [Kaito Watanabe](https://github.com/kaitowatanabe)

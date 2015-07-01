@@ -1,8 +1,17 @@
+/*
+ * EDITER
+ * http://editer.io
+ *
+ * Copyright 2015 Naoki Kanazawa, Kaito Watanabe
+ *
+ * Released under the MIT license - http://opensource.org/licenses/mit-license.php
+ */
+
 $(function () {
 	var themelist = require("ace/ext/themelist");
 	console.log(themelist)
 	var editor = ace.edit("editor");
-	editor.setTheme("ace/theme/monokai");
+	editor.setTheme("ace/theme/solarized_light");
 	editor.getSession().setMode("ace/mode/html");
 	editor.session.setUseWrapMode(true);
 	editor.session.setWrapLimitRange(null, null);
@@ -16,7 +25,7 @@ $(function () {
 
 	var delayPreview;
 
-	var currentTemplate = 'blank';
+	var currentTemplate = 'demo';
 
 	editor.on("change", function () {
 		clearTimeout(delayPreview);
@@ -111,9 +120,11 @@ $(function () {
     var isDark = selected.data('dark');
     if (isDark){
       $('header').addClass('dark')
+      $('h1 img').attr('src','images/logo.png')
     }
     else{
       $('header').removeClass('dark')
+      $('h1 img').attr('src','images/logo_black.png')
     }
 	})
   $('#template').change(function(){
@@ -140,18 +151,18 @@ var toDoubleDigits = function(num) {
   if (num.length === 1) {
     num = "0" + num;
   }
- return num;     
+ return num;
 };
 
-/* 
- * Lazy Line Painter - Path Object 
+/*
+ * Lazy Line Painter - Path Object
  * Generated using 'SVG to Lazy Line Converter'
- * 
- * http://lazylinepainter.info 
- * Copyright 2013, Cam O'Connell  
- *  
- */ 
- 
+ *
+ * http://lazylinepainter.info
+ * Copyright 2013, Cam O'Connell
+ *
+ */
+
 var pathObj = {
   "logo": {
     "strokepath": [
@@ -185,14 +196,13 @@ var pathObj = {
         "height": 120
     }
   }
-}; 
- 
-$(document).ready(function(){ 
- $('#logo').lazylinepainter( 
+};
+
+$(document).ready(function(){
+ $('#logo').lazylinepainter(
    {
       "svgData": pathObj,
-      "strokeWidth": 2,
-      "strokeColor": "#00a29a"
-  }).lazylinepainter('paint'); 
+      "strokeWidth": 1,
+      "strokeColor": "#fff"
+  }).lazylinepainter('paint');
 });
- 
