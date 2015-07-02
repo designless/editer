@@ -384,6 +384,8 @@ body, html {
   margin : 0px;
   padding: 0px;
   height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 header {
@@ -577,6 +579,7 @@ nav ul li:last-child {
 #sass{
   width: 100%;
   display: none;
+  margin: 0px;
 }
 
 .sass-template{

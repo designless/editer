@@ -34,13 +34,12 @@ $(function () {
 		edtr.setHighlightActiveLine(false);
 		edtr.setDisplayIndentGuides(true);
 		edtr.setFontSize("14px");
-		edtr.$blockScrolling = Infinity
   });
 
 
 	var delayPreview;
 
-	var currentTemplate = 'demo';
+	var currentTemplate = 'readme';
 
 	editor.on("change", function () {
 		clearTimeout(delayPreview);
@@ -96,7 +95,7 @@ $(function () {
 		var preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
     sass.compile(sassEditor.getValue(), function(result) {
     	if(result.text){
-    		var style = '<style>'+result.text+'</style>'
+    		var style = '<style>\n'+result.text+'\n</style>'
 	      preview.open();
 	      var source1 = editor.getValue().split('<style>')[0];
 	      var source2 = editor.getValue().split('</style>')[1];
@@ -199,6 +198,9 @@ $(function () {
 		$('#sass').toggleClass('sass-template');
 		var source = editor.getValue().split('<style>')[1].split('</style>')[0]
 		sassEditor.setValue(source, -1)
+		editors.forEach(function (edtr) {
+	  	edtr.resize(true);
+	  });
 	})
 
 });
