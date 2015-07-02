@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Editor</title>
+<script src="/js/snap.svg-min.js"></script>
+<style>
+	
+</style>
+</head>
+<body>
+<h1><img src="images/logo_black.png" alt="EDITER"></h1>
+<h2>Enjoy Coding!</h2>
+<div id="svg"></div>
+<script>
+	window.onload = function () {
+		var s = Snap(600, 600);
+		var btnCircle = s.circle(150, 150, 30);
+		btnCircle.attr({
+		    fill: "#009688",
+		});
+		btnCircle.click(function(e){
+  		btnCircle.stop().animate(
+  			this.data("switch")
+  				?{r: 100, fill: '#fff'}:{r: 30, fill: '#009688'},
+  		800, mina.easein);
+  		this.data("switch", !this.data("switch"));
+  	});
+	}
+</script>
+</body>
+</html>
