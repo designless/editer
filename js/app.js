@@ -9,19 +9,33 @@
 
 $(function () {
 	var themelist = require("ace/ext/themelist");
-	console.log(themelist)
-	var editor = ace.edit("editor");
-	editor.setTheme("ace/theme/solarized_light");
+	var sass = window.sass = new Sass();
+	var isSassMode = false;
+
+	var editor = ace.edit("html");
 	editor.getSession().setMode("ace/mode/html");
-	editor.session.setUseWrapMode(true);
-	editor.session.setWrapLimitRange(null, null);
-	editor.session.setUseSoftTabs(true);
-	editor.session.setFoldStyle("markbegin");
-	editor.session.setTabSize(2);
-	editor.setOption("enableEmmet", true);
-	editor.setHighlightActiveLine(false);
-	editor.setDisplayIndentGuides(true);
-	editor.setFontSize("14px");
+
+	var sassEditor = ace.edit("sass");
+	sassEditor.getSession().setMode("ace/mode/sass");
+
+	editors = [
+    editor,
+    sassEditor
+  ];
+
+  editors.forEach(function (edtr) {
+  	edtr.setTheme("ace/theme/solarized_light");
+    edtr.session.setUseWrapMode(true);
+		edtr.session.setWrapLimitRange(null, null);
+		edtr.session.setUseSoftTabs(true);
+		edtr.session.setFoldStyle("markbegin");
+		edtr.session.setTabSize(2);
+		edtr.setOption("enableEmmet", true);
+		edtr.setHighlightActiveLine(false);
+		edtr.setDisplayIndentGuides(true);
+		edtr.setFontSize("14px");
+  });
+
 
 	var delayPreview;
 
@@ -29,7 +43,13 @@ $(function () {
 
 	editor.on("change", function () {
 		clearTimeout(delayPreview);
-		delayPreview = setTimeout(updatePreview, 200);
+		delayPreview = setTimeout(updatePreview, 200);	
+		
+	});
+
+	sassEditor.on("change", function () {
+		clearTimeout(delayPreview);
+		delayPreview = setTimeout(updateSassPreview, 200);
 	});
 
 	function loadDefault() {
@@ -60,9 +80,31 @@ $(function () {
 	function updatePreview() {
 		var previewFrame = document.getElementById('preview');
 		var preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
-		preview.open();
-		preview.write(editor.getValue());
+    preview.open();
+    preview.write(editor.getValue());
 		preview.close();
+
+		if (window.localStorage) {
+			clearTimeout(delaySave);
+			delaySave = setTimeout(saveStorage, 1000);
+		}
+	}
+
+	function updateSassPreview() {
+		var previewFrame = document.getElementById('preview');
+		var preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
+    sass.compile(sassEditor.getValue(), function(result) {
+    	if(result.text){
+    		var style = '<style>\n'+result.text+'\n</style>'
+	      preview.open();
+	      var source1 = editor.getValue().split('<style>')[0];
+	      var source2 = editor.getValue().split('</style>')[1];
+	      var source = source1 + style + source2;
+	      preview.write(source);
+				preview.close();
+				editor.setValue(source, -1);
+    	}
+    });
 
 		if (window.localStorage) {
 			clearTimeout(delaySave);
@@ -75,6 +117,7 @@ $(function () {
 		editor.resize(true);
 	}
 
+
 	var resizeTimer = null;
 	$(window).resize(function () {
 		if (resizeTimer) clearTimeout(resizeTimer);
@@ -84,12 +127,12 @@ $(function () {
 	windowResizer();
 
   function setTemplate(template) {
-    $.get("source/"+template+'.html', function (data) {
+  	$.get("source/"+template+'.html', function (data) {
       editor.setValue(data);
       editor.clearSelection();
       editor.scrollToLine(0);
       currentTemplate = template
-    });
+    })
   }
 
 	$(".reset").click(function () {
@@ -115,7 +158,10 @@ $(function () {
 		$('#theme').append($option)
 	});
 	$('#theme').change(function(){
-		editor.setTheme($(this).val());
+		var theme = $(this).val()
+		editors.forEach(function (edtr) {
+	  	edtr.setTheme(theme);
+	  });
     var selected = $(this).find('option:selected');
     var isDark = selected.data('dark');
     if (isDark){
@@ -143,6 +189,18 @@ $(function () {
 	    a.download = newdate+'.html';
 	    a.href = 'data:application/octet-stream,'+encodeURIComponent(editor.getValue());
 	    a.click();
+	})
+
+	$('#sass-btn').click(function () {
+		$(this).toggleClass('sass-active');
+		isSassMode = !isSassMode;
+		$('#html').toggleClass('sass-template');
+		$('#sass').toggleClass('sass-template');
+		var source = editor.getValue().split('<style>')[1].split('</style>')[0]
+		sassEditor.setValue(source, -1)
+		editors.forEach(function (edtr) {
+	  	edtr.resize(true);
+	  });
 	})
 
 });

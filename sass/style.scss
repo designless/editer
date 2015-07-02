@@ -471,12 +471,11 @@ nav ul li:last-child {
   float: right;
 }
 
-#editor {
-  float: left;
+#html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   margin: 0;
-  width: 50%;
+  width: 100%;
   height: 100%;
   line-height: 1.3;
   opacity: 1;
@@ -571,4 +570,23 @@ nav ul li:last-child {
   .github {
     display: none;
   }
+}
+#editor{
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+#sass{
+  width: 100%;
+  display: none;
+  margin: 0px;
+}
+
+.sass-template{
+  height: 50% !important;
+  display: block !important;
+}
+
+.sass-active{
+  color: #cd669a;
 }
