@@ -25,7 +25,7 @@ $(function () {
 
 	var delayPreview;
 
-	var currentTemplate = 'demo';
+	var currentTemplate = 'readme';
 
 	editor.on("change", function () {
 		clearTimeout(delayPreview);
