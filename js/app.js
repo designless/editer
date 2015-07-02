@@ -92,7 +92,6 @@ $(function () {
 	}
 
 	function updateSassPreview() {
-		alert('aaa')
 		var previewFrame = document.getElementById('preview');
 		var preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
     sass.compile(sassEditor.getValue(), function(result) {
